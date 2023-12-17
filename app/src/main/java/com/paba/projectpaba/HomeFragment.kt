@@ -71,10 +71,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        videoArrayList.clear()
         _videoRecyclerView = view.findViewById(R.id.video_recycler_view)
         addData()
-        showData()
 
         val addVideoButton = view.findViewById<ImageView>(R.id.add_video_button)
         addVideoButton.setOnClickListener {
@@ -83,8 +81,20 @@ class HomeFragment : Fragment() {
     }
 
     private fun addData() {
-        for (video in MainActivity.videoArrayList) {
-            videoArrayList.add(video)
+        MainActivity.videoArrayList.clear()
+        videoArrayList.clear()
+        MainActivity.db.collection("tbVideo").get().addOnSuccessListener { result ->
+            for (document in result) {
+                val hasil = Video (
+                    document.data.get("title").toString(),
+                    document.data.get("image").toString(),
+                    document.data.get("description").toString(),
+                    document.data.get("id").toString()
+                )
+                MainActivity.videoArrayList.add(hasil)
+                videoArrayList.add(hasil)
+            }
+            showData()
         }
     }
 

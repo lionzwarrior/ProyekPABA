@@ -13,6 +13,7 @@ class DeleteVideoButtonDialog(val pos: Int) : DialogFragment() {
             .setMessage("Apakah benar data " + MainActivity.videoArrayList[pos].title + " akan dihapus ?")
             .setPositiveButton("HAPUS") { _, _ ->
                 Toast.makeText(context, "DATA ${MainActivity.videoArrayList[pos].title} BERHASIL DIHAPUS", Toast.LENGTH_SHORT).show()
+                MainActivity.db.collection("tbVideo").document(MainActivity.videoArrayList[pos].id).delete()
                 MainActivity.videoArrayList.removeAt(pos)
                 this.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentSelf())
             }

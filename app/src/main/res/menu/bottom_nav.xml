@@ -9,4 +9,10 @@
         android:id="@+id/playerVsPlayerFragment"
         android:icon="@drawable/people"
         android:title="Player vs Player" />
+
+    <item
+        android:id="@+id/playersFragment"
+        android:icon="@drawable/players"
+        android:title="Players" />
+
 </menu>

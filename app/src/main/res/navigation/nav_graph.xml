@@ -27,4 +27,9 @@
         android:name="com.paba.projectpaba.PlayerVsPlayerFragment"
         android:label="fragment_player_vs_player"
         tools:layout="@layout/fragment_player_vs_player" />
+    <fragment
+        android:id="@+id/playersFragment"
+        android:name="com.paba.projectpaba.PlayersFragment"
+        android:label="fragment_players"
+        tools:layout="@layout/fragment_players" />
 </navigation>

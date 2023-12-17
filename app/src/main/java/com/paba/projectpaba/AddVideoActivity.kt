@@ -26,6 +26,9 @@ import java.util.TimerTask
 
 
 class AddVideoActivity : AppCompatActivity() {
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_video)
@@ -85,6 +88,7 @@ class AddVideoActivity : AppCompatActivity() {
                     val image = response.body()?.items?.get(0)?.snippet?.thumbnails?.medium?.url
                     val description = response.body()?.items?.get(0)?.snippet?.description
                     MainActivity.videoArrayList.add(Video(title!!, image!!, description!!, id))
+                    MainActivity.db.collection("tbVideo").document(id).set(Video(title, image, description, id))
                 }
             }
             override fun onFailure(call: Call<YoutubeResponse>, t: Throwable) {
