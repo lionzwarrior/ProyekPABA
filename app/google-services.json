@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "320546966588",
+    "project_id": "projectakhirpaba",
+    "storage_bucket": "projectakhirpaba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320546966588:android:407b1b8bf60983d50f4739",
+        "android_client_info": {
+          "package_name": "com.paba.projectpaba"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhpIAF7KkzvFv8yfzrVEgz071-6fivwq8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
