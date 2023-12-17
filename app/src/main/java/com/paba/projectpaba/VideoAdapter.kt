@@ -14,7 +14,7 @@ class VideoAdapter (
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
-        fun openVideo(pos: Int)
+        fun openVideo(pos: Int, id: String)
         fun deleteVideo(pos: Int)
     }
 
@@ -43,15 +43,15 @@ class VideoAdapter (
         holder._videoDescription.text = video.description
 
         holder._videoImage.setOnClickListener {
-            onItemClickCallback.openVideo(position)
+            onItemClickCallback.openVideo(position, video.id)
         }
 
         holder._videoTitle.setOnClickListener {
-            onItemClickCallback.openVideo(position)
+            onItemClickCallback.openVideo(position, video.id)
         }
 
         holder._videoDescription.setOnClickListener {
-            onItemClickCallback.openVideo(position)
+            onItemClickCallback.openVideo(position, video.id)
         }
 
         holder._deleteVideoButton.setOnClickListener {

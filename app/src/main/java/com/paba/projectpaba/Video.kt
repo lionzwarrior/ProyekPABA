@@ -8,5 +8,5 @@ class Video (
     val title: String,
     val image: String,
     val description: String,
-    val link: String
+    val id: String
 ) : Parcelable

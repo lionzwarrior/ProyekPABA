@@ -13,5 +13,18 @@
         <action
             android:id="@+id/action_homeFragment_self"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addVideoActivity"
+            app:destination="@id/addVideoActivity" />
     </fragment>
+    <activity
+        android:id="@+id/addVideoActivity"
+        android:name="com.paba.projectpaba.AddVideoActivity"
+        android:label="activity_add_video"
+        tools:layout="@layout/activity_add_video" />
+    <fragment
+        android:id="@+id/playerVsPlayerFragment"
+        android:name="com.paba.projectpaba.PlayerVsPlayerFragment"
+        android:label="fragment_player_vs_player"
+        tools:layout="@layout/fragment_player_vs_player" />
 </navigation>

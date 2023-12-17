@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    tools:context=".PlayerVsPlayerFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:id="@+id/editTextPlayer1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Player 1" />
+
+    <EditText
+        android:id="@+id/editTextPlayer2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPlayer1"
+        android:layout_marginTop="8dp"
+        android:hint="Player 2" />
+
+    <Button
+        android:id="@+id/buttonShowWinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPlayer2"
+        android:layout_marginTop="16dp"
+        android:text="Show Winner"
+        android:textAllCaps="false" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPlayers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonShowWinner"
+        android:layout_marginTop="16dp" />
+
+</RelativeLayout>

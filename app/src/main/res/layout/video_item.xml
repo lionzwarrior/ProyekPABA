@@ -21,7 +21,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="Video Title"
-        android:textSize="24sp"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/video_image"
         app:layout_constraintTop_toTopOf="@id/video_image" />
 

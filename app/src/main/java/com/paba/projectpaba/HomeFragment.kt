@@ -1,15 +1,19 @@
 package com.paba.projectpaba
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.ImageView
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.paba.projectpaba.DeleteVideoButtonDialog.Companion.TAG
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -71,6 +75,11 @@ class HomeFragment : Fragment() {
         _videoRecyclerView = view.findViewById(R.id.video_recycler_view)
         addData()
         showData()
+
+        val addVideoButton = view.findViewById<ImageView>(R.id.add_video_button)
+        addVideoButton.setOnClickListener {
+            this.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAddVideoActivity())
+        }
     }
 
     private fun addData() {
@@ -85,8 +94,17 @@ class HomeFragment : Fragment() {
         _videoRecyclerView.adapter = videoAdapter
 
         videoAdapter.setOnItemClickCallback(object : VideoAdapter.OnItemClickCallback {
-            override fun openVideo(pos: Int) {
-                TODO("Not yet implemented")
+            override fun openVideo(pos: Int, id: String) {
+                val appIntent = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:$id"))
+                val webIntent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("http://www.youtube.com/watch?v=$id")
+                )
+                try {
+                    context!!.startActivity(appIntent)
+                } catch (ex: ActivityNotFoundException) {
+                    context!!.startActivity(webIntent)
+                }
             }
 
             override fun deleteVideo(pos: Int) {
@@ -94,5 +112,6 @@ class HomeFragment : Fragment() {
                 deleteVideoButtonDialog.show(childFragmentManager, TAG)
             }
         })
+        videoAdapter.notifyDataSetChanged()
     }
 }
