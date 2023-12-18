@@ -39,11 +39,10 @@ class PlayerAdapter(private val playerList: List<String>, private val context: C
     }
 
     private fun openYouTubeVideo() {
-        val videoId = "dQw4w9WgXcQ"
-        val intentApp = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:$videoId"))
+        val intentApp = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:@bwftv"))
         val intentWeb = Intent(
             Intent.ACTION_VIEW,
-            Uri.parse("http://www.youtube.com/watch?v=$videoId")
+            Uri.parse("https://www.youtube.com/@bwftv")
         )
 
         try {

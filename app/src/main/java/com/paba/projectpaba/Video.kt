@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-class Video (
+data class Video (
     val title: String,
     val image: String,
     val description: String,

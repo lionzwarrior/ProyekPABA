@@ -60,6 +60,7 @@ class PlayerVsPlayerFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+        private val playerList = mutableListOf<String>()
     }
 
     private lateinit var editTextPlayer1: EditText
@@ -67,8 +68,6 @@ class PlayerVsPlayerFragment : Fragment() {
     private lateinit var buttonShowWinner: Button
     private lateinit var recyclerViewPlayers: RecyclerView
     private lateinit var playerAdapter: PlayerAdapter
-
-    private val playerList = mutableListOf<String>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
